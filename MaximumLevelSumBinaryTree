@@ -53,3 +53,76 @@ class Solution {
         
     }
 }
+
+
+/*
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    class AnnotatedNode {
+        TreeNode node;
+        int pos;
+        public AnnotatedNode(TreeNode node, int pos) {
+            this.node = node;
+            this.pos = pos;
+        }
+    }
+    
+    public int widthOfBinaryTree(TreeNode root) {
+        
+        if (root == null) {
+            return -1;
+        }
+        
+        Queue<AnnotatedNode> q = new LinkedList<>();
+        int maxWidth = 0;
+        
+        q.add(new AnnotatedNode(root, 0));
+
+        while (!q.isEmpty()) {
+            int size = q.size();
+            int lmnp = 0;
+            
+            for (int i = 0; i < size; ++i) {
+                AnnotatedNode temp = q.poll();
+                if (i == 0) {
+                    lmnp = temp.pos;
+                    System.out.println("lmnp: " + lmnp);
+                }
+                
+                if (temp.node.left != null) {
+                    q.add(new AnnotatedNode(temp.node.left, temp.pos * 2 + 1));
+                }
+                if (temp.node.right != null) {
+                    q.add(new AnnotatedNode(temp.node.right, temp.pos * 2 + 2));
+                }
+                
+                if (i == size - 1) {
+                    maxWidth = Math.max(maxWidth, temp.pos - lmnp + 1);
+                    System.out.println("temp.pos: " + temp.pos);
+                    System.out.println("maxWdith: " + maxWidth);
+                }
+            }
+        }
+        
+        return maxWidth;
+    }
+}
+
+
+
+*/

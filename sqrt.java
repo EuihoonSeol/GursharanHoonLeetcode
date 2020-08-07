@@ -1,5 +1,8 @@
 class Solution {
     public int mySqrt(int x) {
+        /*
+        Using binary search to find the middle of the integer
+        */
         if(x==0){
             return 0;
         }

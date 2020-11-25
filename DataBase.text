@@ -19,3 +19,7 @@ Update salary
             Then 'f'
         Else 'm' 
         END;
+
+
+620. Not Boring Movies
+SOLUTION->Select id,movie,description,rating from cinema where id%2 !=0 and NOT description= 'boring' order by rating desc;

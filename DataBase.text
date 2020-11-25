@@ -3,3 +3,7 @@ SOLUTION -> Select Email from Person Group By Email Having Count(Email)>1
 
 181. Employees Earning More Than Their Managers
 SOLUTION -> SELECT a.Name as Employee from Employee a where a.Salary>(Select b.Salary from Employee b where b.Id=a.ManagerId)
+
+
+183. Customers Who Never Order
+SELECT NAME as Customers from Customers a LEFT JOIN Orders b ON a.Id=b.CustomerId where b.Id is NULL;

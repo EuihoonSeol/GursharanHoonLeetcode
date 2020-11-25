@@ -9,3 +9,13 @@ SOLUTION -> SELECT a.Name as Employee from Employee a where a.Salary>(Select b.S
 SELECT NAME as Customers from Customers a LEFT JOIN Orders b ON a.Id=b.CustomerId where b.Id is NULL;
                                   OR
 Select Name as Customers from Customers where Id not in (Select CustomerId from Orders);
+
+
+627. Swap Salary
+Solution ->
+Update salary 
+    SET sex=CASE
+        When sex='m'
+            Then 'f'
+        Else 'm' 
+        END;

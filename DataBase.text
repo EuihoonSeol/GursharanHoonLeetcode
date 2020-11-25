@@ -1,2 +1,5 @@
 182. Duplicate Emails
 SOLUTION -> Select Email from Person Group By Email Having Count(Email)>1
+
+181. Employees Earning More Than Their Managers
+SOLUTION -> SELECT a.Name as Employee from Employee a where a.Salary>(Select b.Salary from Employee b where b.Id=a.ManagerId)
